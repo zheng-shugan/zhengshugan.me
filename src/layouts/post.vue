@@ -63,11 +63,11 @@
         </span>
       </div>
 
-      <Giscus
-        v-if="!disableGiscus"
-        :key="router.currentRoute.value.fullPath"
-        mt-20
-      />
+      <!--      <Giscus-->
+      <!--        v-if="!disableGiscus"-->
+      <!--        :key="router.currentRoute.value.fullPath"-->
+      <!--        mt-20-->
+      <!--      />-->
     </div>
   </Layout>
 </template>

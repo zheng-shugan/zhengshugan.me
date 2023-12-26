@@ -11,7 +11,7 @@
     ]"
   >
     <router-link class="font-bold" un-text="c-light hover:c-dark" to="/">
-      <span text="lg">hi@zxh</span>
+      <span text="lg">hi@zsg</span>
       <div i-fa6-solid:angle-right class="prompt inline-block" />
       <span class="blink">_</span>
     </router-link>
@@ -22,7 +22,7 @@
         <span class="lt-md:hidden">Projects</span>
       </router-link>
 
-      <router-link nav-item to="/posts" title="Blog">
+      <router-link nav-item to="/posts/zh" title="Blog">
         <div i-majesticons:pencil-line md:hidden />
         <span class="lt-md:hidden">Blog</span>
       </router-link>
