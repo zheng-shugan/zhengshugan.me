@@ -28,12 +28,12 @@ socials:
     class="p-1 mb-1 border border-c rounded-md lt-md:hidden"
     shadow="[inset_0_0_10px_#000000] slate-200 dark:slate-800"
   >
-    <flip-image class="w-24 h-24" src="img/avatar.jpg" alt="avatar" />
+    <flip-image class="w-21 h-20" src="img/avatar.PNG" alt="avatar" />
   </div>
 </div>
 
 
-I'm current still student in CUC, current major is digital media art, but I interest in web development. Most use technology stack is TypeScript, Java, Vue3.
+I'm current still student in Concord University College Fujian Normal University, current major is digital media art, but I interest in web development. Most use technology stack is TypeScript, Java, Vue3.
 
 
 ## Education

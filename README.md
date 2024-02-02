@@ -1,10 +1,8 @@
 # Hi! 🤔
 
-This is my personal website, built on [Vitesse](https://github.com/antfu/vitesse).
+This is my personal website, fork on [zxh.io](https://github.com/Renovamen/renovamen.github.io).
 
-My old blog is now moved to: [blog.zxh.io](https://blog.zxh.io) / [code](https://github.com/Renovamen/blog.zxh.io)
-
-Any way, just have fun: [zxh.io](https://zxh.io)
+Any way, just have fun: [zhengshugan.me](https://zhengshugan.me)
 
 
 &nbsp;
@@ -38,7 +36,7 @@ pnpm build
 - [qbb.sh](https://www.qbb.sh/)
 - [Vitepress](https://vitepress.vuejs.org/)
 - [Computer Modern Sans](https://checkmyworking.com/cm-web-fonts/)
-
+- [zxh.io](https://github.com/Renovamen/renovamen.github.io)
 
 &nbsp;
 
