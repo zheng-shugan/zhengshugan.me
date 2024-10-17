@@ -1,6 +1,6 @@
 <template>
   <footer font="ui" text="sm center c-lighter" m="t-20">
-    © Shugan Zheng 2023 <br />
-    Not the walking dead
+    © Shugan Zheng <br />
+    缘来缘去缘如水
   </footer>
 </template>
