@@ -1,6 +1,6 @@
-export const hostname = "https://zxh.io";
+export const hostname = "https://zhengshugan.me";
 export const title = "Shugan Zheng";
-export const description = "Not the walking dead.";
+export const description = "缘来缘去缘如水.";
 export const author = "Shugan Zheng";
 
 export const themeLight = "#ffffff";
