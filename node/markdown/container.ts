@@ -9,6 +9,7 @@ export const containerPlugin = (md: MarkdownIt) => {
     .use(...createContainer("warning", "WARNING", md))
     .use(...createContainer("danger", "DANGER", md))
     .use(...createContainer("details", "Details", md))
+    .use(...createContainer("container", "Container", md))
     .use(...createPubContainer());
 };
 

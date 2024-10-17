@@ -16,7 +16,7 @@ export default defineConfig({
     ["vstack", "flex flex-col justify-center"],
     ["border-c", "border-gray-200 dark:border-gray-600"],
     ["border-c-dark", "border-gray-300 dark:border-gray-500"],
-    ["bg-c", "bg-white dark:bg-gray-700"],
+    ["bg-c", "bg-softGray dark:bg-gray-700"],
     ["text-c", "text-gray-800 dark:text-gray-200"],
     ["text-c-light", "text-c opacity-85"],
     ["text-c-lighter", "text-c opacity-50"],
@@ -37,7 +37,8 @@ export default defineConfig({
       nav: "0 1px 8px 0 rgba(27, 35, 47, .1)"
     },
     colors: {
-      brand: "#1772d0"
+      brand: "#1772d0",
+      softGray: "#f1f0ea"
     },
     maxWidth: {
       content: "90ch"
