@@ -2,7 +2,7 @@
 
 This is my personal website, fork on [zxh.io](https://github.com/Renovamen/renovamen.github.io/tree/vitesse).
 
-Any way, just have fun: [zhengshugan.me](https://zhengshugan.me)
+Any way, just have fun: [zhengshugan-me.vercel.app](https://zhengshugan-me.vercel.app/)
 
 &nbsp;
 
