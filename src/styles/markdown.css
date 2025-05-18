@@ -38,6 +38,10 @@ main:not(.post) a.header-anchor {
 
 /** Table **/
 
+.prose td, .prose th {
+  min-width: 140px;
+}
+
 .prose tr {
   @apply border-t border-c-dark;
 }

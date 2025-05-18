@@ -1,14 +1,26 @@
 @import "./markdown.css";
 @import "./about.css";
-@import "./fonts.css";
 @import "./post.css";
+@import "./fonts.css";
 
 html,
-body {
+body,
+#app {
   @apply h-full m-0 p-0;
-  @apply bg-softGray;
+}
+
+html {
+    @apply bg-softGray;
 }
 
 html.dark {
   @apply bg-gray-700;
+}
+
+#nprogress {
+  @apply pointer-events-none;
+}
+
+#nprogress .bar {
+  @apply fixed opacity-75 top-0 left-0 w-full h-0.5 z-50 bg-brand;
 }
