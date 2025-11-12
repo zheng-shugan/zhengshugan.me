@@ -3,7 +3,7 @@ title: "iPhone 镜像"
 tags:
     - iOS
     - macOS
-    - 苹果
+    - Apple
 ---
 
 > 早干嘛去的苹果

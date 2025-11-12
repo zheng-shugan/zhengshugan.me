@@ -2,7 +2,7 @@
 title: "为什么还在使用 iPhone？"
 tags:
   - iPhone
-  - 苹果生态
+  - Apple
 ---
 
 ## toc
