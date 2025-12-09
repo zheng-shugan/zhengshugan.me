@@ -26,3 +26,20 @@ tags:
 11. iPhone X 发布  
 12. AirPods Pro 发布  
 13. iPhone Air 发布  
+
+## 补丁：2025-12-09
+
+> 苹果进入新纪元的时期，一切已经很显然，权力的中心再也难以保持不变了。  
+
+2025 年底苹果罕见的高管离职退休潮：  
+  
+* COO Jeff Williams  
+* AI 负责人 John Giannandrea  
+* 设计主管 Alan Dye  
+* 环境与政策负责人 Lisa Jackson  
+* 高级副总裁兼总法律顾问 Kate Adams  
+  
+以及数十名员工跳槽到 Meta 和 OpenAI，上次像这样的高管离职潮还是在 1997 年乔布斯刚回归苹果重新掌权的时候，那时的问题是生存，而现在呢？或许只有他们知道了。  
+  
+![Apple Departures Point to Challenges](/img/post/zh/2025-11-12/1.png) 
+  
