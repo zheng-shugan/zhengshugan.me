@@ -20,7 +20,6 @@
     "@astrojs/sitemap": "^3.7.2",
     "@astrojs/vue": "^2.2.1",
     "@iconify/json": "^2.2.458",
-    "@renovamen/utils": "^0.1.1",
     "@types/cross-spawn": "^6.0.6",
     "@typescript-eslint/eslint-plugin": "^5.62.0",
     "@typescript-eslint/parser": "^5.62.0",

@@ -39,9 +39,6 @@ importers:
       '@iconify/json':
         specifier: ^2.2.458
         version: 2.2.458
-      '@renovamen/utils':
-        specifier: ^0.1.1
-        version: 0.1.1
       '@types/cross-spawn':
         specifier: ^6.0.6
         version: 6.0.6
@@ -862,9 +859,6 @@ packages:
 
   '@polka/url@1.0.0-next.29':
     resolution: {integrity: sha512-wwQAWhWSuHaag8c4q/KN/vCoeOJYshAIvMQwD4GpSb3OiZklFfvAgmj0VCBBImRpuF/aFgIRzllXlVX93Jevww==}
-
-  '@renovamen/utils@0.1.1':
-    resolution: {integrity: sha512-Cl2JDoA8twmqmm56S1Inlcle4uoN1AQZreQs+aJY/hRicboQduCQex6nVM8Kh3oD+g0m0/p7Wdci4/sAaphr/g==}
 
   '@rollup/pluginutils@5.3.0':
     resolution: {integrity: sha512-5EdhGZtnu3V88ces7s53hhfK5KSASnJZv8Lulpc04cWO3REESroJXg73DFsOmgbU2BhwV0E20bu2IDZb3VKW4Q==}
@@ -4217,8 +4211,6 @@ snapshots:
   '@pkgr/core@0.1.2': {}
 
   '@polka/url@1.0.0-next.29': {}
-
-  '@renovamen/utils@0.1.1': {}
 
   '@rollup/pluginutils@5.3.0(rollup@4.60.1)':
     dependencies:

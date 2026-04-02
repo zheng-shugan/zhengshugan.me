@@ -1,5 +1,4 @@
 ---
-import { isExternal } from "@renovamen/utils";
 import type { SocialItem } from "@types";
 
 export interface Props {
@@ -16,7 +15,7 @@ const { socials } = Astro.props;
         class="btn font-normal px-3 h-9 mr-1 mb-1"
         title={item.name || item.link}
         href={item.link}
-        target={isExternal(item.link) ? "_blank" : "_self"}
+        target="_blank"
         rel="noopener noreferrer"
       >
         <div class={item.icon} w-5 h-5 />

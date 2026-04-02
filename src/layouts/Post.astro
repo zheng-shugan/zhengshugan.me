@@ -1,5 +1,5 @@
 ---
-import { slugify } from "@renovamen/utils";
+import { slugifyTag } from "@utils";
 import type { CollectionEntry } from "astro:content";
 import { SITE, THEME } from "@config";
 import Layout from "@layouts/Layout.astro";
@@ -57,7 +57,7 @@ const editText = THEME.editLink.text;
             <span i-uil:tag-alt text-sm />
             {tags.map((tag, i) => (
               <span>
-                <a href={tagURL + slugify(tag)} class="!text-c hover:underline">
+                <a href={tagURL + slugifyTag(tag)} class="!text-c hover:underline">
                   {tag}
                 </a>
                 {i !== tags.length - 1 && <span class="-ml-1.5">, </span>}
