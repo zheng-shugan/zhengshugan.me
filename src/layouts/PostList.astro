@@ -1,5 +1,4 @@
 ---
-import { slugify } from "@renovamen/utils";
 import { SITE } from "@config";
 import Layout from "@layouts/Layout.astro";
 import ToggleLang from "@components/ToggleLang.astro";
@@ -9,7 +8,8 @@ import {
   getPostsByTag,
   getSortedPostsByYear,
   getTags,
-  formatDate
+  formatDate,
+  slugifyTag
 } from "@utils";
 
 export interface Props {
@@ -43,7 +43,7 @@ const sortedPostsByYear = getSortedPostsByYear(tag ? getPostsByTag(posts, tag) :
       tags.map((tag) => (
         <span class="mr-1.5">
           <span class="i-uil:tag-alt -mr-0.5 text-sm text-c-light" />
-          <a href={tagURL + slugify(tag)} class="-mr-0.5 !text-c-light">
+          <a href={tagURL + slugifyTag(tag)} class="-mr-0.5 !text-c-light">
             {tag}
           </a>
           <sup>{numPostsPerTag[tag]}</sup>

@@ -1,7 +1,6 @@
 ---
-import { slugify } from "@renovamen/utils";
 import PostList from "@layouts/PostList.astro";
-import { getPosts, getTags } from "@utils";
+import { getPosts, getTags, slugifyTag } from "@utils";
 
 export interface Props {
   tag: string;
@@ -14,7 +13,7 @@ export const getStaticPaths = async () => {
   const { tags } = getTags(posts);
 
   return tags.map((tag) => ({
-    params: { tag: slugify(tag) },
+    params: { tag: slugifyTag(tag) },
     props: { tag }
   }));
 };

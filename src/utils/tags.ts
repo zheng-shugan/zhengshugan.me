@@ -1,4 +1,10 @@
 import type { CollectionEntry } from "astro:content";
+import pinyin from "pinyin/lib/esm/pinyin.js";
+
+export const slugifyTag = (tag: string): string => {
+  const result = pinyin(tag, { style: 0 }).join("-");
+  return result || tag;
+};
 
 export const getTags = (posts: CollectionEntry<"blog">[]) => {
   const map: Record<string, number> = {};
