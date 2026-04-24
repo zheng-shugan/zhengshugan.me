@@ -9,7 +9,7 @@ export interface Props {
 
 export const getStaticPaths = async () =>
   (await getPosts("zh")).map((post) => ({
-    params: { slug: post.slug.split("/")[1] },
+    params: { slug: post.slug.split("/")[1].replace(/\.md$/, "") },
     props: { post }
   }));
 

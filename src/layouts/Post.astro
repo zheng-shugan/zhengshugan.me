@@ -40,7 +40,10 @@ const prevPost =
       };
 
 // edit link
-const editURL = THEME.editLink.pattern.replace(/:path/g, `/${post.id}.md`);
+const editURL = THEME.editLink.pattern.replace(
+  /:path/g,
+  `/${post.id.replace(/\.md$/, "")}.md`
+);
 const editText = THEME.editLink.text;
 ---
 

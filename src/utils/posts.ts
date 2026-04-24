@@ -8,7 +8,7 @@ export const getPostDate = (post: CollectionEntry<"blog">) => {
 };
 
 export const getPostUrlSlug = (post: CollectionEntry<"blog">) =>
-  post.id.split("/").pop()!;
+  post.id.split("/").pop()!.replace(/\.md$/, "");
 
 export const getPosts = async (lang: string) =>
   await getCollection(
