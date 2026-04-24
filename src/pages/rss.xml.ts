@@ -1,7 +1,7 @@
 import rss from "@astrojs/rss";
 import { getCollection } from "astro:content";
 import { SITE } from "@config";
-import { getPostDate } from "@utils";
+import { getPostDate, getPostUrlSlug } from "@utils";
 
 export async function get() {
   const posts = await getCollection("blog", ({ data }) => !data.draft);
@@ -10,10 +10,14 @@ export async function get() {
     title: SITE.title,
     description: SITE.desc,
     site: SITE.website,
-    items: posts.map((item) => ({
-      link: `posts/${item.slug}`,
-      title: item.data.title,
-      pubDate: new Date(getPostDate(item))
-    }))
+    items: posts.map((item) => {
+      const slug = getPostUrlSlug(item);
+      const isZh = item.id.startsWith("zh/");
+      return {
+        link: `posts/${isZh ? "zh/" : ""}${slug}`,
+        title: item.data.title,
+        pubDate: new Date(getPostDate(item))
+      };
+    })
   });
 }

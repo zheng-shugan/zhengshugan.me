@@ -4,6 +4,7 @@ import vue from "@astrojs/vue";
 import remarkToc from "remark-toc";
 import sitemap from "@astrojs/sitemap";
 import autoimport from "unplugin-auto-import/astro";
+import { copyAttachments, serveAttachments } from "./src/integrations/attachments";
 
 // https://astro.build/config
 export default defineConfig({
@@ -20,8 +21,12 @@ export default defineConfig({
         enabled: true
       }
     }),
-    sitemap()
+    sitemap(),
+    copyAttachments()
   ],
+  vite: {
+    plugins: [serveAttachments()]
+  },
   markdown: {
     remarkPlugins: [[remarkToc, { maxDepth: 3 }]],
     shikiConfig: {

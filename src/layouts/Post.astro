@@ -21,24 +21,26 @@ const tagURL = `/posts/${lang === "en" ? "" : lang + "/"}tags/`;
 // previous and next post
 const posts = getSortedPosts(await getPosts(lang));
 const postIndex = posts.findIndex((p) => p.id === post.id);
+const urlPrefix = lang === "zh" ? "zh/" : "";
+const cleanSlug = (p: CollectionEntry<"blog">) => p.id.split("/").pop()!;
 
 const nextPost =
   postIndex === 0
     ? null
     : {
         title: posts[postIndex - 1].data.title,
-        path: posts[postIndex - 1].slug
+        path: `/posts/${urlPrefix}${cleanSlug(posts[postIndex - 1])}`
       };
 const prevPost =
   postIndex === posts.length - 1
     ? null
     : {
         title: posts[postIndex + 1].data.title,
-        path: posts[postIndex + 1].slug
+        path: `/posts/${urlPrefix}${cleanSlug(posts[postIndex + 1])}`
       };
 
 // edit link
-const editURL = THEME.editLink.pattern.replace(/:path/g, `/${post.slug}.md`);
+const editURL = THEME.editLink.pattern.replace(/:path/g, `/${post.id}.md`);
 const editText = THEME.editLink.text;
 ---
 
@@ -90,14 +92,14 @@ const editText = THEME.editLink.text;
         <div class="mb-20 grid md:grid-cols-2 pt-3 text-[0.95em] border-t border-c">
           <span class="prev">
             {prevPost && (
-              <a href={`/posts/${prevPost.path}`} class="hover:underline">
+              <a href={prevPost.path} class="hover:underline">
                 {prevPost.title}
               </a>
             )}
           </span>
           <span class="next text-right">
             {nextPost && (
-              <a href={`/posts/${nextPost.path}`} class="hover:underline">
+              <a href={nextPost.path} class="hover:underline">
                 {nextPost.title}
               </a>
             )}

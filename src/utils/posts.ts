@@ -1,7 +1,14 @@
 import { getCollection, type CollectionEntry } from "astro:content";
 
-export const getPostDate = (post: CollectionEntry<"blog">) =>
-  post.id.split("/").pop()!.substring(0, 10);
+export const getPostDate = (post: CollectionEntry<"blog">) => {
+  if (post.data.date) {
+    return post.data.date.toISOString().split("T")[0];
+  }
+  return post.id.split("/").pop()!.substring(0, 10);
+};
+
+export const getPostUrlSlug = (post: CollectionEntry<"blog">) =>
+  post.id.split("/").pop()!;
 
 export const getPosts = async (lang: string) =>
   await getCollection(
