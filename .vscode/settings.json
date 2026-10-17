@@ -1,0 +1,8 @@
+{
+    "chat.tools.terminal.autoApprove": {
+        "/^ls -ld node_modules/@unocss node_modules/@unocss/reset node_modules/\\.pnpm/@unocss\\+reset@0\\.50\\.8/node_modules/@unocss/reset node_modules/\\.pnpm/@unocss\\+astro@0\\.50\\.8\\*/node_modules/@unocss/astro 2>&1; pnpm exec astro --version$/": {
+            "approve": true,
+            "matchCommandLine": true
+        }
+    }
+}

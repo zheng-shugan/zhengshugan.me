@@ -23,6 +23,7 @@
     "@types/cross-spawn": "^6.0.6",
     "@typescript-eslint/eslint-plugin": "^5.62.0",
     "@typescript-eslint/parser": "^5.62.0",
+    "@unocss/reset": "0.50.8",
     "astro-eslint-parser": "^0.11.0",
     "cross-spawn": "^7.0.6",
     "eslint": "^8.57.1",

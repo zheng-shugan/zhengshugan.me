@@ -48,6 +48,9 @@ importers:
       '@typescript-eslint/parser':
         specifier: ^5.62.0
         version: 5.62.0(eslint@8.57.1)(typescript@5.9.3)
+      '@unocss/reset':
+        specifier: 0.50.8
+        version: 0.50.8
       astro-eslint-parser:
         specifier: ^0.11.0
         version: 0.11.0
