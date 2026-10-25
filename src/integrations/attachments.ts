@@ -28,7 +28,7 @@ function findAttachmentDirs(dir: string): string[] {
   for (const entry of entries) {
     const fullPath = path.join(dir, entry.name);
     if (entry.isDirectory()) {
-      if (entry.name === "Attachments") {
+      if (["Attachments", "attachments"].includes(entry.name)) {
         results.push(fullPath);
       } else {
         results.push(...findAttachmentDirs(fullPath));
@@ -72,8 +72,14 @@ export function serveAttachments(): Plugin {
         } catch {
           return next();
         }
-        const match = pathname.match(/^\/posts\/(.+)$/);
-        if (!match || !match[1].split("/").includes("Attachments")) return next();
+        const match = pathname.match(/^\/posts\/([\s\S]+)$/);
+        if (
+          !match ||
+          !match[1]
+            .split("/")
+            .some((part) => ["Attachments", "attachments"].includes(part))
+        )
+          return next();
 
         const srcDir = path.resolve("src/content/blog");
         const candidates = [

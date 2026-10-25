@@ -64,7 +64,7 @@ const { tags, numPostsPerTag } = getTags(posts);
                       data-post-cover
                       class="post-cover"
                       src={coverUrl}
-                      alt={post.data.cover?.alt ?? ""}
+                      alt={post.data.title}
                       loading="lazy"
                       decoding="async"
                     />
