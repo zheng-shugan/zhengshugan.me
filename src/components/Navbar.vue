@@ -16,6 +16,13 @@
     </a>
 
     <nav hstack space-x-4>
+      <a nav-item href="/" title="Home">
+        <div i-carbon:home md:hidden />
+        <span class="lt-md:hidden" :class="[activePage === 'home' && 'active']">
+          Home
+        </span>
+      </a>
+
       <a nav-item href="/projects" title="Projects">
         <div i-ph:rocket-launch-duotone md:hidden />
         <span class="lt-md:hidden" :class="[activePage === 'projects' && 'active']">
@@ -27,6 +34,13 @@
         <div i-majesticons:pencil-line md:hidden />
         <span class="lt-md:hidden" :class="[activePage === 'posts' && 'active']">
           Blog
+        </span>
+      </a>
+
+      <a nav-item href="/about" title="About">
+        <div i-carbon:user md:hidden />
+        <span class="lt-md:hidden" :class="[activePage === 'about' && 'active']">
+          About
         </span>
       </a>
 

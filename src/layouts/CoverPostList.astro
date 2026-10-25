@@ -12,15 +12,19 @@ import {
 } from "@utils";
 import { getCoverUrl } from "@utils/cover";
 
+export interface Props {
+  activePage?: "home" | "posts";
+}
+
+const { activePage = "posts" } = Astro.props;
 const posts = await getPosts("zh");
 const sortedPostsByYear = getSortedPostsByYear(posts);
 const { tags, numPostsPerTag } = getTags(posts);
 ---
 
-<Layout title={`博客 - ${SITE.title}`} activePage="posts">
+<Layout title={`博客 - ${SITE.title}`} activePage={activePage}>
   <div class="prose prose-lg m-auto">
     <h1>博客</h1>
-    <a href="/posts/zh">归档列表</a>
     <div class="mt-4">
       {
         tags.map((tag) => (

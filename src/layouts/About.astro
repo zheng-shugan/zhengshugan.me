@@ -17,7 +17,7 @@ export interface Props {
 const { name, subname, avatar, socials } = Astro.props.frontmatter;
 ---
 
-<Layout title={`About - ${SITE.title}`}>
+<Layout title={`About - ${SITE.title}`} activePage="about">
   <div class="about prose prose-lg m-auto">
     <div class="flex items-end justify-between">
       <div>

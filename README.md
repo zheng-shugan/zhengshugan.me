@@ -30,7 +30,8 @@ pnpm build
 
 ## 文章列表封面
 
-`/blog` 展示中文文章及可选封面；`/posts`、`/posts/zh` 保留文字归档。
+首页 `/` 和 `/blog` 展示中文文章及可选封面；`/posts`、`/posts/zh` 保留文字归档。
+个人介绍移至 `/about`，可通过导航栏 About 访问。
 在文章 frontmatter 中显式填写：
 
 ```yaml

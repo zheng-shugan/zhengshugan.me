@@ -2,7 +2,7 @@
 layout: ../layouts/About.astro
 name: Shugan Zheng
 subname: 郑书淦
-avatar: img/avatar.PNG
+avatar: /img/avatar.PNG
 socials:
   - icon: "i-ion:mail-outline"
     link: "zhengshugan@foxmail.com"
