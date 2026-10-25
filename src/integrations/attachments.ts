@@ -2,6 +2,7 @@ import type { AstroIntegration } from "astro";
 import type { Plugin } from "vite";
 import path from "path";
 import fs from "fs";
+import { fileURLToPath } from "node:url";
 
 const MIME_TYPES: Record<string, string> = {
   ".png": "image/png",
@@ -43,7 +44,7 @@ export function copyAttachments(): AstroIntegration {
     hooks: {
       "astro:build:done": async ({ dir }) => {
         const srcDir = path.resolve("src/content/blog");
-        const outDir = typeof dir === "string" ? dir : dir.pathname;
+        const outDir = typeof dir === "string" ? dir : fileURLToPath(dir);
         const attachmentDirs = findAttachmentDirs(srcDir);
 
         for (const attachmentDir of attachmentDirs) {
@@ -63,20 +64,29 @@ export function serveAttachments(): Plugin {
     name: "serve-attachments",
     configureServer(server) {
       server.middlewares.use((req, res, next) => {
-        const url = req.url || "";
-        const match = url.match(/^\/posts\/(.+?)\/Attachments\/(.+)$/);
-        if (!match) return next();
+        let pathname: string;
+        try {
+          pathname = decodeURIComponent(
+            new URL(req.url || "/", "http://localhost").pathname
+          );
+        } catch {
+          return next();
+        }
+        const match = pathname.match(/^\/posts\/(.+)$/);
+        if (!match || !match[1].split("/").includes("Attachments")) return next();
 
-        const [, postPath, fileName] = match;
         const srcDir = path.resolve("src/content/blog");
         const candidates = [
-          path.join(srcDir, "zh", postPath, "Attachments", fileName),
-          path.join(srcDir, postPath, "Attachments", fileName)
-        ];
+          path.resolve(srcDir, match[1]),
+          path.resolve(srcDir, "zh", match[1])
+        ].filter((candidate) => {
+          const relative = path.relative(srcDir, candidate);
+          return !relative.startsWith("..") && !path.isAbsolute(relative);
+        });
 
         for (const candidate of candidates) {
-          if (fs.existsSync(candidate)) {
-            const ext = path.extname(fileName).toLowerCase();
+          if (fs.existsSync(candidate) && fs.statSync(candidate).isFile()) {
+            const ext = path.extname(candidate).toLowerCase();
             res.setHeader("Content-Type", MIME_TYPES[ext] || "application/octet-stream");
             fs.createReadStream(candidate).pipe(res);
             return;

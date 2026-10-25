@@ -23,7 +23,7 @@
         </span>
       </a>
 
-      <a nav-item href="/posts/zh" title="Blog">
+      <a nav-item href="/blog" title="Blog">
         <div i-majesticons:pencil-line md:hidden />
         <span class="lt-md:hidden" :class="[activePage === 'posts' && 'active']">
           Blog

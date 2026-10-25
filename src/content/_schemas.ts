@@ -7,6 +7,13 @@ export const blogSchema = z
     tags: z.array(z.string()).optional(),
     draft: z.boolean().optional(),
     date: z.date().optional(),
+    cover: z
+      .object({
+        src: z.string().trim().min(1),
+        alt: z.string().optional()
+      })
+      .strict()
+      .optional()
   })
   .strict();
 
