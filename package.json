@@ -14,7 +14,10 @@
     "astro": "^5.18.1",
     "dayjs": "^1.11.20",
     "pinyin": "^4.0.0",
-    "remark-toc": "^8.0.1"
+    "remark-toc": "^8.0.1",
+    "remark-gfm": "^4.0.1",
+    "remark-parse": "^11.0.0",
+    "unified": "^11.0.5"
   },
   "devDependencies": {
     "@astrojs/sitemap": "^3.7.2",

@@ -11,6 +11,7 @@ import {
   slugifyTag
 } from "@utils";
 import { getCoverUrl } from "@utils/cover";
+import { getPostExcerpt } from "@utils/excerpt";
 
 export interface Props {
   activePage?: "home" | "posts";
@@ -46,27 +47,37 @@ const { tags, numPostsPerTag } = getTags(posts);
             {sortedPostsByYear[year].map((post) => {
               const coverUrl = getCoverUrl(post);
               const date = getPostDate(post);
+              const excerpt = getPostExcerpt(post.body);
+              const href = `/posts/zh/${getPostUrlSlug(post)}`;
               return (
-                <a class="post-row !text-c" href={`/posts/zh/${getPostUrlSlug(post)}`}>
-                  <div class="post-text">
-                    <time datetime={date} class="text-sm opacity-50">
-                      {formatDate(date, false)}
-                    </time>
-                    <div class="font-normal">{post.data.title}</div>
-                  </div>
+                <article class="post-preview">
+                  <h3 class="post-title">
+                    <a class="!text-c !font-bold" href={href}>
+                      {post.data.title}
+                    </a>
+                  </h3>
+                  <time datetime={date} class="block text-sm opacity-50">
+                    {formatDate(date, false)}
+                  </time>
                   {coverUrl && (
                     <img
                       data-post-cover
                       class="post-cover"
                       src={coverUrl}
                       alt={post.data.cover?.alt ?? ""}
-                      width="160"
-                      height="90"
                       loading="lazy"
                       decoding="async"
                     />
                   )}
-                </a>
+                  {excerpt && <p class="post-excerpt">{excerpt}</p>}
+                  <a
+                    class="read-more"
+                    href={href}
+                    aria-label={`阅读全文：${post.data.title}`}
+                  >
+                    阅读全文
+                  </a>
+                </article>
               );
             })}
           </section>
@@ -86,37 +97,32 @@ const { tags, numPostsPerTag } = getTags(posts);
 </script>
 
 <style>
-  .post-row {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 0.75rem 0;
-    text-decoration: none;
-  }
-  .post-text {
-    flex: 1;
+  .post-preview {
+    margin-bottom: 48px;
     min-width: 0;
     overflow-wrap: anywhere;
   }
-  .post-row:hover .post-text > div {
-    text-decoration: underline;
+  .post-preview .post-title {
+    margin: 0 0 8px;
   }
-  .post-row .post-cover {
-    width: 96px;
-    height: 54px;
-    flex-shrink: 0;
-    object-fit: cover;
-    object-position: center;
-    border-radius: 0.375rem;
-    margin: 0;
+  .post-preview .post-cover {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin: 24px 0 0;
   }
-  .post-cover[hidden] {
+  .post-preview .post-cover[hidden] {
     display: none;
   }
-  @media (min-width: 640px) {
-    .post-row .post-cover {
-      width: 160px;
-      height: 90px;
-    }
+  .post-preview .post-excerpt {
+    margin: 24px 0;
+  }
+  .post-preview .read-more {
+    display: inline-block;
+    margin-top: 16px;
+  }
+  .post-excerpt + .read-more {
+    margin-top: 0;
   }
 </style>
