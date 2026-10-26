@@ -11,6 +11,14 @@
   @apply no-underline hover:underline text-c-active font-normal;
 }
 
+.prose a:not(.btn):hover {
+  @apply text-c-dark;
+}
+
+.prose .markdown-body p a:not(.btn) {
+  text-decoration-line: underline;
+}
+
 .prose img,
 .prose video {
   @apply mx-auto my-2;

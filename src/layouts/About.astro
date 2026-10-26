@@ -39,6 +39,8 @@ const { name, subname, avatar, socials } = Astro.props.frontmatter;
       }
     </div>
 
-    <slot />
+    <div class="markdown-body">
+      <slot />
+    </div>
   </div>
 </Layout>

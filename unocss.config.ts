@@ -21,7 +21,7 @@ export default defineConfig({
     ["text-c-light", "text-c opacity-85"],
     ["text-c-lighter", "text-c opacity-50"],
     ["text-c-dark", "text-black dark:text-white"],
-    ["text-c-active", "text-brand dark:text-blue-300"],
+    ["text-c-active", "text-c"],
     ["nav-item", "hstack space-x-1 text-c-light hover:text-c-dark"],
     [
       "btn",

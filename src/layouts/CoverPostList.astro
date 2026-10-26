@@ -77,6 +77,15 @@ const { tags, numPostsPerTag } = getTags(posts);
                   >
                     阅读全文
                   </a>
+                  {post.data.tags && post.data.tags.length > 0 && (
+                    <div class="post-tags" aria-label="文章标签">
+                      {post.data.tags.map((tag) => (
+                        <a href={`/posts/zh/tags/${slugifyTag(tag)}`} rel="tag">
+                          #{tag}
+                        </a>
+                      ))}
+                    </div>
+                  )}
                 </article>
               );
             })}
@@ -121,8 +130,24 @@ const { tags, numPostsPerTag } = getTags(posts);
   .post-preview .read-more {
     display: inline-block;
     margin-top: 16px;
+    text-decoration-line: underline;
   }
   .post-excerpt + .read-more {
     margin-top: 0;
+  }
+  .post-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 12px;
+    font-size: 0.875rem;
+  }
+  .post-tags a {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    opacity: 0.85;
+  }
+  .post-tags a:hover {
+    opacity: 1;
   }
 </style>
