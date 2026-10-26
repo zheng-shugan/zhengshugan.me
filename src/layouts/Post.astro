@@ -1,5 +1,5 @@
 ---
-import { slugifyTag } from "@utils";
+import { getPostUrlSlug, slugifyTag } from "@utils";
 import type { CollectionEntry } from "astro:content";
 import { SITE, THEME } from "@config";
 import Layout from "@layouts/Layout.astro";
@@ -22,21 +22,20 @@ const tagURL = `/posts/${lang === "en" ? "" : lang + "/"}tags/`;
 const posts = getSortedPosts(await getPosts(lang));
 const postIndex = posts.findIndex((p) => p.id === post.id);
 const urlPrefix = lang === "zh" ? "zh/" : "";
-const cleanSlug = (p: CollectionEntry<"blog">) => p.id.split("/").pop()!;
 
 const nextPost =
   postIndex === 0
     ? null
     : {
         title: posts[postIndex - 1].data.title,
-        path: `/posts/${urlPrefix}${cleanSlug(posts[postIndex - 1])}`
+        path: `/posts/${urlPrefix}${getPostUrlSlug(posts[postIndex - 1])}`
       };
 const prevPost =
   postIndex === posts.length - 1
     ? null
     : {
         title: posts[postIndex + 1].data.title,
-        path: `/posts/${urlPrefix}${cleanSlug(posts[postIndex + 1])}`
+        path: `/posts/${urlPrefix}${getPostUrlSlug(posts[postIndex + 1])}`
       };
 
 // edit link
