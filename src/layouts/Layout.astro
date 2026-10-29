@@ -9,20 +9,22 @@ export interface Props {
   author?: string;
   description?: string;
   activePage?: string;
+  lang?: string;
 }
 
 const {
   title = SITE.title,
   author = SITE.author,
   description = SITE.desc,
-  activePage
+  activePage,
+  lang = "en"
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />

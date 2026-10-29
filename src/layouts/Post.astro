@@ -46,14 +46,22 @@ const editURL = THEME.editLink.pattern.replace(
 const editText = THEME.editLink.text;
 ---
 
-<Layout title={`${title} - ${SITE.title}`} author={author} activePage="posts">
+<Layout title={`${title} - ${SITE.title}`} author={author} activePage="posts" lang={lang}>
   <ToggleToc client:only slot="navbar" />
 
-  <div class="prose prose-lg mx-auto pt-6 pb-16">
-    <h1 text-4xl font-bold leading-12 my-0>{title}</h1>
+  <div
+    class="prose prose-lg mx-auto pt-6 pb-16"
+    data-pagefind-body={post.id === "index.md" ? undefined : ""}
+    data-language={lang}
+    data-date={getPostDate(post)}
+    data-pagefind-meta="language[data-language], date[data-date]"
+  >
+    <h1 text-4xl font-bold leading-12 my-0 data-pagefind-meta="title">{title}</h1>
 
     <p opacity-50 mt-2 mb-8>
-      {formatDate(getPostDate(post))} · {readingTime(post.body).minutes} min
+      <span data-pagefind-ignore>
+        {formatDate(getPostDate(post))} · {readingTime(post.body).minutes} min
+      </span>
       {
         tags?.length && (
           <span>

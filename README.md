@@ -61,6 +61,19 @@ cover:
 无可提取文字时省略预览段落。无需新增摘要字段；Blog 仍使用原有紧凑纯文字列表。
 
 
+## 博客搜索
+
+导航栏的搜索按钮或 `⌘/Ctrl+K` 可打开搜索弹窗，同时检索已发布中英文文章的
+标题、标签和正文。搜索在浏览器本地运行，不需要后端或搜索服务账号。
+
+`pnpm build` 会先构建 Astro，再运行 Pagefind，将索引写入 `dist/pagefind/`。
+Vercel 的 Build Command 应设为 `pnpm build`，Output Directory 为 `dist`。
+文章更新后重新部署即可更新索引。
+
+本地验证完整搜索请运行 `pnpm build`，再运行 `pnpm serve`；`pnpm dev` 不生成索引。
+`pagefind.yml` 将中英文合并为中文分词索引，Markdown 插件会排除文章目录；只有标记了
+`data-pagefind-body` 的文章进入索引，草稿沿用现有发布过滤逻辑。
+
 ## Credits
 
 - [antfu.me]( https://antfu.me/)

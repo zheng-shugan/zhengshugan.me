@@ -5,6 +5,7 @@ import remarkToc from "remark-toc";
 import sitemap from "@astrojs/sitemap";
 import autoimport from "unplugin-auto-import/astro";
 import { copyAttachments, serveAttachments } from "./src/integrations/attachments";
+import { ignoreSearchToc } from "./src/plugins/search";
 
 // https://astro.build/config
 export default defineConfig({
@@ -28,7 +29,7 @@ export default defineConfig({
     plugins: [serveAttachments()]
   },
   markdown: {
-    remarkPlugins: [[remarkToc, { maxDepth: 3 }]],
+    remarkPlugins: [[remarkToc, { maxDepth: 3 }], ignoreSearchToc],
     shikiConfig: {
       theme: "one-dark-pro",
       wrap: true

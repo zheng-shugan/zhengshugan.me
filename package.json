@@ -2,7 +2,7 @@
   "private": true,
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "astro build && pagefind --site dist",
     "serve": "astro preview",
     "format": "prettier --plugin-search-dir=. -w src/**/*.astro src/pages/posts/*",
     "lint": "pnpm format && eslint --ext .js,.ts,.astro,.vue ."
@@ -33,6 +33,7 @@
     "eslint-config-prettier": "^8.10.2",
     "eslint-plugin-astro": "^0.23.0",
     "eslint-plugin-prettier": "^4.2.5",
+    "pagefind": "^1.5.2",
     "pnpm": "^7.33.7",
     "prettier": "^2.8.8",
     "prettier-plugin-astro": "^0.8.1",

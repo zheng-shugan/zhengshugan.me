@@ -29,7 +29,7 @@ const { tags, numPostsPerTag } = getTags(posts);
 const sortedPostsByYear = getSortedPostsByYear(tag ? getPostsByTag(posts, tag) : posts);
 ---
 
-<Layout title={`${title} - ${SITE.title}`} activePage={"posts"}>
+<Layout title={`${title} - ${SITE.title}`} activePage={"posts"} lang={lang}>
   <div class="prose prose-lg m-auto">
     <h1>{title} <ToggleLang /></h1>
 
@@ -64,7 +64,10 @@ const sortedPostsByYear = getSortedPostsByYear(tag ? getPostsByTag(posts, tag) :
                 <div class="w-14 h-6 leading-6 opacity-50 text-sm mr-2">
                   {formatDate(getPostDate(item), false)}
                 </div>
-                <a class="flex-1 !text-c" href={`/posts/${lang === "zh" ? "zh/" : ""}${getPostUrlSlug(item)}`}>
+                <a
+                  class="flex-1 !text-c"
+                  href={`/posts/${lang === "zh" ? "zh/" : ""}${getPostUrlSlug(item)}`}
+                >
                   {item.data.title}
                 </a>
               </div>

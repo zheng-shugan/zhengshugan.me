@@ -15,7 +15,7 @@
       <span class="blink">_</span>
     </a>
 
-    <nav hstack space-x-4>
+    <nav hstack class="gap-1.5 sm:gap-4">
       <a nav-item href="/" title="Home">
         <div i-carbon:home md:hidden />
         <span class="lt-md:hidden" :class="[activePage === 'home' && 'active']">
@@ -48,6 +48,8 @@
         <div i-jam:rss-feed />
       </a>
 
+      <Search />
+
       <button nav-item title="Toggle dark" @click="toggleDark()">
         <div i="carbon-sun dark:carbon-moon" />
       </button>
@@ -59,6 +61,7 @@
 
 <script setup lang="ts">
 import { toggleDark } from "@composables/dark";
+import Search from "./Search.vue";
 
 defineProps<{
   activePage?: string;
