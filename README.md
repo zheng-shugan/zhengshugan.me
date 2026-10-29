@@ -70,7 +70,10 @@ cover:
 Vercel 的 Build Command 应设为 `pnpm build`，Output Directory 为 `dist`。
 文章更新后重新部署即可更新索引。
 
-本地验证完整搜索请运行 `pnpm build`，再运行 `pnpm serve`；`pnpm dev` 不生成索引。
+`pnpm dev` 也支持完整搜索：首次打开搜索时按需索引开发服务器渲染的文章，
+索引保存在内存中，不依赖 `dist/`。修改、新增或删除文章后，页面自动刷新，
+下次搜索会重新生成索引；首次生成可能需要几秒钟。调整搜索界面可直接使用热更新。
+生产模式仍可通过 `pnpm build` 和 `pnpm serve` 验证。
 `pagefind.yml` 将中英文合并为中文分词索引，Markdown 插件会排除文章目录；只有标记了
 `data-pagefind-body` 的文章进入索引，草稿沿用现有发布过滤逻辑。
 

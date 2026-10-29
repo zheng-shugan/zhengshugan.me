@@ -6,6 +6,7 @@ import sitemap from "@astrojs/sitemap";
 import autoimport from "unplugin-auto-import/astro";
 import { copyAttachments, serveAttachments } from "./src/integrations/attachments";
 import { ignoreSearchToc } from "./src/plugins/search";
+import { devSearch } from "./src/integrations/search";
 
 // https://astro.build/config
 export default defineConfig({
@@ -23,7 +24,8 @@ export default defineConfig({
       }
     }),
     sitemap(),
-    copyAttachments()
+    copyAttachments(),
+    devSearch()
   ],
   vite: {
     plugins: [serveAttachments()]

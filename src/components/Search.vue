@@ -59,10 +59,7 @@
           {{ status }}
         </p>
         <div v-if="failed" class="search-error">
-          <p v-if="isDev">
-            本地搜索需要构建索引，请运行 <code>pnpm build &amp;&amp; pnpm serve</code>
-            后在预览站点打开搜索。
-          </p>
+          <p v-if="isDev">开发搜索索引生成失败，请查看终端日志，修复后重试。</p>
           <button type="button" class="search-action border-c" @click="retry">
             重试
           </button>
@@ -149,7 +146,7 @@ const status = computed(() => {
 
 async function getEngine() {
   if (!enginePromise) {
-    // Generated after Astro builds; Vite must leave this URL for the browser.
+    // Served by the dev integration or generated after the production build.
     const attempt = importAttempt++;
     // Failed module fetches are cached by browsers; retry with a fresh module URL.
     const url = `/pagefind/pagefind.js${attempt ? `?retry=${attempt}` : ""}`;
